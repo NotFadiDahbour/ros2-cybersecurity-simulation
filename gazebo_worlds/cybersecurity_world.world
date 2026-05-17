@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<!--
+FILE: cybersecurity_world.world
+TYPE: Gazebo World File (runs on HOST machine with Gazebo)
+PURPOSE: Defines the 3D simulation environment for the TurtleBot3 robot.
+         4 cylinders arranged in a square formation at (±2, ±2).
+         Launch with: gazebo gazebo_worlds/cybersecurity_world.world
+-->
+<sdf version="1.6">
+  <world name="cybersecurity_demo_world">
+
+    <!-- Lighting -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ground Plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Boundary Walls -->
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0 5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>10 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.2 1</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_south">
+      <static>true</static>
+      <pose>0 -5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>10 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.2 1</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_east">
+      <static>true</static>
+      <pose>5 0 0.5 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>10 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.2 1</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-5 0 0.5 0 0 1.5708</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>10 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>10 0.2 1</size></box></geometry>
+          <material><ambient>0.5 0.5 0.5 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 4 Cylinders in a square formation at corners (±2, ±2) -->
+
+    <model name="cylinder_NE">
+      <static>true</static>
+      <pose>2 2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder><radius>0.3</radius><length>1</length></cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.3</radius><length>1</length></cylinder>
+          </geometry>
+          <material><ambient>0.2 0.2 0.8 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="cylinder_NW">
+      <static>true</static>
+      <pose>-2 2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder><radius>0.3</radius><length>1</length></cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.3</radius><length>1</length></cylinder>
+          </geometry>
+          <material><ambient>0.2 0.2 0.8 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="cylinder_SE">
+      <static>true</static>
+      <pose>2 -2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder><radius>0.3</radius><length>1</length></cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.3</radius><length>1</length></cylinder>
+          </geometry>
+          <material><ambient>0.2 0.2 0.8 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="cylinder_SW">
+      <static>true</static>
+      <pose>-2 -2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder><radius>0.3</radius><length>1</length></cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.3</radius><length>1</length></cylinder>
+          </geometry>
+          <material><ambient>0.2 0.2 0.8 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- TurtleBot3 Burger Robot -->
+    <include>
+      <uri>model://turtlebot3_burger</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <!-- Physics settings -->
+    <physics type="ode">
+      <real_time_update_rate>1000.0</real_time_update_rate>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+
+  </world>
+</sdf>

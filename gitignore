@@ -1,0 +1,40 @@
+# ─── ROS2 / Colcon build artifacts ──────────────────────────────────────────
+build/
+install/
+log/
+.colcon_install_layout
+
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+.eggs/
+dist/
+*.so
+
+# ─── Virtual environments ────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ─── VSCode ──────────────────────────────────────────────────────────────────
+.vscode/
+
+# ─── Attack output files (not for version control) ───────────────────────────
+recon_results.json
+stolen_data.json
+
+# ─── SROS2 security keystores (contain private keys — never commit) ──────────
+keystore/
+*.pem
+*.p12
+
+# ─── OS files ────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
+latest
